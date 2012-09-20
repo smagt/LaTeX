@@ -13,6 +13,8 @@
 \usepackage{fancyvrb}
 \VerbatimFootnotes
 
+\usepackage{amsmath}
+
 \title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
 \footnotesize{version 3.1}}
 \author{smagt@tum.de}
@@ -249,7 +251,8 @@ or the \verb+\cdot+ aka $\cdot$, sometimes even \verb+\ast+, i.e., $\ast$.
 Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, $\times$ the 
 outer product, and $\ast$ means convolution\footnote{But, of course, these are only
 general conventions and not laws.  Indeed, there exist equations where throwing in
-a \verb+\cdot+ to indicate scalar multiplication may actually clarify things.}.
+a \verb+\cdot+ to indicate scalar multiplication may actually clarify things.}. To write
+$a$ times $x$, just type \verb+$ax$+ yielding $ax$.
 
 
 \subsection{Fractioning}
@@ -260,4 +263,19 @@ fraction increases in length, and lines get cramped or, even worse, the baseline
 At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion:
 don't use fractions in inline equations, but use the simple / divider.  What is easier
 to read, $\frac12$ or $1/2$?
+
+\subsection{Vectorising}
+Sometimes it is important to clear the difference between a vector and a scalar.
+The standard way to indicate vectors is as $\vec x$, and that works fine if it is 
+just one old vector lying around.  But when a whole bunch is involved, for instance
+$$ \vec x \vec y + \vec b \vec a = 2,$$ the result looks silly.  Some people
+prefer $$ \underline x \underline y + \underline b \underline a = 2$$ but, well,
+judge yourself.  
+
+One preferred way out is using boldface symbols.  If you do, do it right.  Get the \AmS math package and write,
+\begin{verbatim}
+\usepackage{amsmath}
+\newcommand{\vect}[1]{\boldsymbol{#1}} % I would write, \def\vect#1{\boldsymbol{#1}}
+\end{verbatim}
+to render $\boldsymbol{abc\phi\chi}$.
 \end{document}
