@@ -14,7 +14,7 @@
 \VerbatimFootnotes
 
 \title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
-\footnotesize{version 3.}}
+\footnotesize{version 3.1}}
 \author{smagt@tum.de}
 \begin{document}
 
@@ -49,7 +49,9 @@ I used that style in this document, but BE does not prefer that anymore.
 always have double l\\
 except in compounds.''
 
-(So why does \TeX\ write \verb+overfull+?)
+\vskip1ex\noindent
+(So why does \TeX\ write \verb+overfull+?  And what about underfull?  Overfulfil, or is it overfulfill?
+Woeful, all of this.) 
 
 \subsection{a or an?}
 Everyone knows that ``an'' is used before a vowel, ``a'' before a consonant.  But that refers to the
@@ -211,13 +213,13 @@ $$ \pi r^2.$$
 If an equation, for instance
 $$ E = m c^2, $$
 is part of a sentence, of course normal punctuation must be applied.  It makes no sense adding a comma after an equation such as 
-$$ f(x) = \sum_i x_i $$
+$$ f(\vec x) = \sum_i x_i $$
 when a comma has no place there.
 
 Oh, of course, punctuation should be within a display equation but outside an inline equation.
 
 But there are some caveats.  For instance, the comma in equations is a punctuation symbol.
-To change that, put it in braces to say, for instance, \verb+$10{,}000|x|$ is not less than $x$+.
+To change that, put it in braces to say, for instance, \verb+$10{,}000|x|$ is not less than $|x|$+.
 
 \subsection{Give them space}
 Quite a tricky business, getting spacing in equations right.  But doing it right will tremendously
@@ -239,4 +241,23 @@ sense to write variables in a more wordy fashion.  People sometimes like to writ
 you can see from the typesetting, this goes horribly wrong!  If you really need to write multi-letter
 variables describing some physical quantity, use \verb+\mathrm+, as in
 \verb+$\mathrm{vel} = d \mathrm{pos} / dt$+ to render $\mathrm{vel} = d \mathrm{pos} / dt$.
+
+\subsection{Multiplying}
+One sees many symbols for scalars multiplication.  There is the \verb+\times+ displayed as $\times$,
+or the \verb+\cdot+ aka $\cdot$, sometimes even \verb+\ast+, i.e., $\ast$.
+
+Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, $\times$ the 
+outer product, and $\ast$ means convolution\footnote{But, of course, these are only
+general conventions and not laws.  Indeed, there exist equations where throwing in
+a \verb+\cdot+ to indicate scalar multiplication may actually clarify things.}.
+
+
+\subsection{Fractioning}
+Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain
+the same (note my use of parentheses---or rather, not using them where I need not).
+That is not worth discussing.  But ones things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole
+fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased.
+At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion:
+don't use fractions in inline equations, but use the simple / divider.  What is easier
+to read, $\frac12$ or $1/2$?
 \end{document}
