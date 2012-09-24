@@ -16,7 +16,7 @@
 \usepackage{amsmath}
 
 \title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
-\footnotesize{version 3.1}}
+\footnotesize{version 3.16}}
 \author{smagt@tum.de}
 \begin{document}
 
@@ -75,7 +75,7 @@ A quick one about commands.  Many \LaTeX\ and \TeX\ commands take one or more
 arguments. How does \TeX\ know when a command ends? The rules, which can be
 redefined, are simple in normal (``plain'') mode:
 	a command starts with a \textbackslash\ followed by a single
-  	non-alpha character, or one or more alpha character.  So,
+  	non-alpha character, or one or more alpha characters.  So,
 	\verb+\!+ is defined as being one character (after the backslash)
 	long only, but \verb+\ashdhf+ only ends when the first non-alpha
 	character is seen.
@@ -232,7 +232,7 @@ Also, deleting the space in \verb+$x^2\!/2$+ gives $x^2\!/2$, much nicer than $x
 As is adding some in \verb+$\sqrt2\,x$+ to yield $\sqrt2\,x$ (compare $\sqrt2x$).
 
 \subsection{Units}
-Units are, in general, written according to ISO style and that means, you use ``s'' for seconds, ``m'' for metres, etc.  Make them roman (meaning, not slanted, not italics) and separate them from the number by half a space.  So you write \verb+I am 1.86\,m long and vibrate at 4\,Hz+ to yield ``I am 1.86\,m long, about 1,451,673,446,400\,ms old, and vibrate at 1\,Hz'' and don't use math mode!  
+Units are, in general, written according to ISO style and that means, you use ``s'' for seconds, ``m'' for metres, etc.  Make them roman (meaning, not slanted, not italics) and separate them from the number by half a space.  So you write \verb+I am 1.86\,m long, about 1,451,673,446,400\,ms old, and vibrate at 1\,Hz+ to yield ``I am 1.86\,m long, about 1,451,673,446,400\,ms old, and vibrate at 1\,Hz'' and don't use math mode!  
 
 But, we write 75\%. And $25^\circ$C as \verb+$25^\circ$C+.
 
