@@ -16,7 +16,7 @@
 \usepackage{amsmath}
 
 \title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
-\footnotesize{version 3.16}}
+\footnotesize{version 3.162}}
 \author{smagt@tum.de}
 \begin{document}
 
@@ -278,6 +278,21 @@ One preferred way out is using boldface symbols.  If you do, do it right.  Get t
 \newcommand{\vect}[1]{\boldsymbol{#1}} % I would write, \def\vect#1{\boldsymbol{#1}}
 \end{verbatim}
 to render $\boldsymbol{abc\phi\chi}$.
+
+\subsection{Collected math typesetting hints}
+\begin{itemize}
+\item write \verb$p(x \mid y)$ to yield $p(x \mid y)$ rather than \verb$p(x|y)$ which gives $p(x|y)$
+\item write \verb$\|x\|$ to yield $\|x\|$ rather than \verb$||x||$ which gives $||x||$
+\item sometimes you need to help: cf.\ \begin{itemize}
+\item\verb$\exp(-(x-y) / (2\pi) )$
+giving $\exp(-(x-y) / (2\pi) )$
+\item\verb$\exp\left(-(x-y) / (2\pi) \right)$
+giving $\exp\left(-(x-y) / (2\pi) \right)$
+\item \verb$\exp\bigl(-(x-y) / (2\pi) \bigr)$
+giving $\exp\bigl(-(x-y) / (2\pi) \bigr)$
+\end{itemize}
+of which the last one is arguably easier to read.
+\end{itemize}
 
 
 \subsection{Tables}
