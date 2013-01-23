@@ -16,7 +16,7 @@
 \usepackage{amsmath}
 
 \title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
-\footnotesize{version 3.1623}}
+\footnotesize{version 3.16227}}
 \author{smagt@brml.org}
 \begin{document}
 
@@ -159,6 +159,9 @@ To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their sing
 general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel
 language that you are typesetting.
 
+
+
+
 \section{Figures and tables}
 Most authors cannot drive \LaTeX\ well in placing these.  In fact, \LaTeX\ offers a very nice
 set of macros for placing and naming these.  You need just write
@@ -176,6 +179,38 @@ to.  By default, \TeX\ does a very good job in placing them.  Also, please refra
 a figure in the middle of a column, unless you have a very good reason!
 
 Refer to figures with \verb+Fig.~\ref{...}+ and to tables with \verb+Tab.~\ref{...}+.
+
+\subsection{Table formatting}
+Even I am daunted by the range of possibilities to format a table in \LaTeX.
+The standard set of macros is not very good, but the number of extensions that
+are available---even if one only counts the good and useful ones---is challenging.
+See the below as my personal taste.
+
+The issue of table formatting is, to a large extent, related to taste and design rather than
+typography---yet the line is thin.  A succinct text on the matter can be found
+\href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
+
+Apart from the looks, there are a few packages that you may need when working with
+more-than-trivial tables in \LaTeX.  These include:
+\begin{verbatim}
+\usepackage{longtable}	% must be loaded to use {longtabu}
+\usepackage{tabu}		% more general tabular environment, use longtabu for long tables
+\usepackage{numprint}	% formats numbers in a nice way
+\usepackage{spreadtab}	% allows calculations in tables, uses numprint for printing output
+\usepackage[table]{xcolor}	% alternative to tabu to create coloured cells
+\usepackage{booktabs}		% to make prettier tables, use \toprule...\midrule...\bottomrule
+\end{verbatim}
+You only need spreadtab if you want to compute values in cells.  Tabu gives a good alternative
+to the myriad of tabularx, tabulary, longtabular, and all of these older versions, plus does
+many things one does not need.  Numprint prints scientific notation, is a good package to
+pretty-print tables with numbers, and to format the output of spreadtab.  xcolor may be needed
+to colour cells, but tabu does it, too; so if you use tabu, don't use xcolor.
+
+Check the manuals of these packages to enjoy their strength.  A separate file 
+\texttt{table-example} in this directory gives an example complex table.
+
+
+
 
 
 \section{Citing}
@@ -295,27 +330,5 @@ of which the last one is arguably easier to read.
 \end{itemize}
 
 
-\subsection{Tables}
-The issue of table formatting is, to a large extent, related to taste and design rather than
-typography---yet the line is thin.  A succinct text on the matter can be found
-\href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
-
-Apart from the looks, there are a few packages that you may need when working with
-more-than-trivial tables in \LaTeX.  These include:
-\begin{verbatim}
-\usepackage{longtable}	% must be loaded to use {longtabu}
-\usepackage{tabu}		% more general tabular environment, use longtabu for long tables
-\usepackage{numprint}	% formats numbers in a nice way
-\usepackage{spreadtab}	% allows calculations in tables, uses numprint for printing output
-\usepackage[table]{xcolor}	% alternative to tabu to create coloured cells
-\usepackage{booktabs}		% to make prettier tables, use \toprule...\midrule...\bottomrule
-\end{verbatim}
-You only need spreadtab if you want to compute values in cells.  Tabu gives a good alternative
-to the myriad of tabularx, tabulary, longtabular, and all of these older versions, plus does
-many things one does not need.  Numprint prints scientific notation, is a good package to
-pretty-print tables with numbers, and to format the output of spreadtab.  xcolor may be needed
-to colour cells, but tabu does it, too; so if you use tabu, don't use xcolor.
-
-Check the manuals of these packages to enjoy their strength.
 
  \end{document}
