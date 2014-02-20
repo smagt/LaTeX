@@ -15,21 +15,20 @@
 
 \usepackage{amsmath}
 
-\title{Everything you always wanted to know about \LaTeX ing an article and I grew tired of telling\\[1ex]
+\title{Everything you always wanted to know about \LaTeX ing an article 
+and I grew tired of telling\\[1ex]
 \footnotesize{version 3.16227}}
 \author{smagt@brml.org}
 \begin{document}
 
 \maketitle
 
-You don't know who Donald Knuth is?  Stop reading here.  This document is not for you.  But if you do,
-you may have more satisfaction from reading the \TeX book than these few lines.   Do so, please.
-Here may be a surprise for you: it is probably on your computer.
+You don't know who Donald Knuth is?  Stop reading here.  This document is 
+not for you.  But if you do, you may have more satisfaction from reading 
+the \TeX book than these few lines.   Do so, please. Here may be a surprise for you: it is probably on your computer.
 
 \section{Language}
-Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves
-a few iterations and many irritations.  Note that you can decide whether you use US English or
-British English (BE) spelling.  Some notable differences include the following words:
+Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves a few iterations and many irritations.  Note that you can decide whether you use US English or British English (BE) spelling.  Some notable differences include the following words:
 \begin{center}\begin{tabular}{c|c}
 British English & US English \\\hline
 colour, flavour, humour, etc.	& color, flavor, humor, etc.\\
@@ -38,12 +37,9 @@ aluminium			& aluminum
 \end{tabular}\end{center}
 but this list is far from complete.  See, e.g., \href{http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences}{a corresponding wiki page}.
 
-In BE, you can also choose for the ``-ise'' rather than ``-ize'' ending, depending on which
-dictionary you adhere to.  To my best of knowledge, Oxford uses ``minimize,'' ``minimization,'' etc.\
-while Chambers dictates ``minimise,'' ``minimising,'' etc.  Statistically, ``-ise'' is preferred in BE.
+In BE, you can also choose for the ``-ise'' rather than ``-ize'' ending, depending on which dictionary you adhere to.  To my best of knowledge, Oxford uses ``minimize,'' ``minimization,'' etc.\ while Chambers dictates ``minimise,'' ``minimising,'' etc.  Statistically, ``-ise'' is preferred in BE.
 
-An interesting anomaly is that, in US English, punctuation is \textsl{always} within quotes.  
-I used that style in this document, but BE does not prefer that anymore.
+An interesting anomaly is that, in US English, punctuation is \textsl{always} within quotes.   I used that style in this document, but BE does not prefer that anymore.
 
 
 \subsection{ll}
@@ -52,13 +48,10 @@ always have double l\\
 except in compounds.''
 
 \vskip1ex\noindent
-(So why does \TeX\ write \verb+overfull+?  And what about underfull?  Overfulfil, or is it overfulfill?
-Woeful, all of this.) 
+(So why does \TeX\ write \verb+overfull+?  And what about underfull?  Overfulfil, or is it overfulfill? Woeful, all of this.) 
 
 \subsection{a or an?}
-Everyone knows that ``an'' is used before a vowel, ``a'' before a consonant.  But that refers to the
-\textsl{sound} that follows, not to the spelling!  So please write, ``modern physics discovered that
-the constant indicated by \textbf{an} h is no longer relevant.''
+Everyone knows that ``an'' is used before a vowel, ``a'' before a consonant.  But that refers to the \textsl{sound} that follows, not to the spelling!  So please write, ``modern physics discovered that the constant indicated by \textbf{an} h is no longer relevant.''
 
 
 \subsection{Dash}
@@ -80,67 +73,31 @@ redefined, are simple in normal (``plain'') mode:
 	long only, but \verb+\ashdhf+ only ends when the first non-alpha
 	character is seen.
 
-If an alpha command is followed by one or more spaces, these spaces are interpreted as an end-of-command
-character, and does not render a space in the text.  So, when I write \verb+\TeX is great+ I don't
-get what I want.
+If an alpha command is followed by one or more spaces, these spaces are interpreted as an end-of-command character, and does not render a space in the text.  So, when I write \verb+\TeX is great+ I don't get what I want.
 
-You can use this rule to your advantage.  For instance, \verb+\frac2n+ yields exactly the
-same as \verb+\frac{2}{n}+, but \verb+\fracn2+ goes bitterly wrong.  In math mode,
-why not write \verb+$n^2$+ rather than \verb+$n^{2}$+ (yes, \verb+^+ is also a special
-control character, as are \verb+$#%&{}_~+.  Which did I miss?)
+You can use this rule to your advantage.  For instance, \verb+\frac2n+ yields exactly the same as \verb+\frac{2}{n}+, but \verb+\fracn2+ goes bitterly wrong.  In math mode, why not write \verb+$n^2$+ rather than \verb+$n^{2}$+ (yes, \verb+^+ is also a special control character, as are \verb+$#%&{}_~+.  Which did I miss?)
  
 \subsection{Space control}
-It is worth understanding the spacing algorithm in \TeX. The intricacies go beyond this short section,
-but the principle is as follows.  \TeX\ defines glue between words, sentences, etc.  This glue can
-be compared with a spring, having a base length, which can be compressed by a certain amount,
-and which can be extended by a certain amount.  Normally, two words are separated by some 
-horizontal glue, as are two lines, by vertical glue.  \TeX\ then goes on defining the length of a sentence,
-for instance, and of a page, which also have some flexibility (in the order of picas).
+It is worth understanding the spacing algorithm in \TeX. The intricacies go beyond this short section, but the principle is as follows.  \TeX\ defines glue between words, sentences, etc.  This glue can be compared with a spring, having a base length, which can be compressed by a certain amount, and which can be extended by a certain amount.  Normally, two words are separated by some  horizontal glue, as are two lines, by vertical glue.  \TeX\ then goes on defining the length of a sentence, for instance, and of a page, which also have some flexibility (in the order of picas).
 
-Since the amount of glue is not infinite, there are cases where \TeX\ cannot fill a page or line
-with the amount of glue available.  You may find an example in Sec.~\ref{sec:refereq}.
-So, \TeX\ gives up and outputs an error message (\verb+overfull \hbox+).
+Since the amount of glue is not infinite, there are cases where \TeX\ cannot fill a page or line with the amount of glue available.  You may find an example in Sec.~\ref{sec:refereq}.  So, \TeX\ gives up and outputs an error message (\verb+overfull \hbox+).
 
-You really need to scan your log file for such errors.  And repair them!  There are a few things
-you can do.  The best thing is to reformulate your sentence, or help \TeX\ break words
-with the \verb+\-+ command.  If you are lazy, however, you can use \verb+\tolerance10000+
-in the preamble of the document.  For \TeX, 10,000 is the same as infinity, and this means that
-the corresponding glues can be extended up ``infinity.''  You will never end up with overfull
-hboxes---but you will probably get \verb+underfull+ ones!
+You really need to scan your log file for such errors.  And repair them!  There are a few things you can do.  The best thing is to reformulate your sentence, or help \TeX\ break words with the \verb+\-+ command.  If you are lazy, however, you can use \verb+\tolerance10000+ in the preamble of the document.  For \TeX, 10,000 is the same as infinity, and this means that the corresponding glues can be extended up ``infinity.''  You will never end up with overfull hboxes---but you will probably get \verb+underfull+ ones!
 
-After a full stop \textsl{not} following a capital letter, \TeX\ assumes the end of a sentence
-and adds more glue (i.e., more stretch).  Sometimes you don't want this, and you can prevent
-this extra glue with a \textbackslash\ (followed by a space) or a \textasciitilde\ (\textsl{not followed by a space}).
-The latter does not break along lines.
-To make things more intuitive, this also holds beyond a '' or a ).  So, type
-\verb+I think, viz.\ I am+
-to yield ``I think, viz.\ I am''
-rather than ``I think, viz. I am.''
-Do you notice the difference?  I do.  Depending on how much the space has to be stretched to fill
-a line, \TeX\ will do that after a full stop.
+After a full stop \textsl{not} following a capital letter, \TeX\ assumes the end of a sentence and adds more glue (i.e., more stretch).  Sometimes you don't want this, and you can prevent this extra glue with a \textbackslash\ (followed by a space) or a \textasciitilde\ (\textsl{not followed by a space}). The latter does not break along lines. To make things more intuitive, this also holds beyond a '' or a ).  So, type \verb+I think, viz.\ I am+ to yield ``I think, viz.\ I am'' rather than ``I think, viz. I am.'' Do you notice the difference?  I do.  Depending on how much the space has to be stretched to fill a line, \TeX\ will do that after a full stop.
 
 
-\verb+\raggedright+ and \verb+\raggedbottom+ switch off \TeX's line and page filling algorithms.
-The latter is, by default, off in article mode.
+\verb+\raggedright+ and \verb+\raggedbottom+ switch off \TeX's line and page filling algorithms. The latter is, by default, off in article mode.
 
 
 \paragraph{To paragraphs.}
-Creating a new paragraph in \TeX\ is simply done by leaving a line blank.
-The previous line will be terminated, a new paragraph will be started after a 
-length of \verb+\parskip+ and indented by \verb+\parindent+.  Use this.  If you really
-cannot use the indent on the next line, don't use \verb+\\+ but instead write 
-\verb+\noindent+ before the next paragraph.  Use \verb+\\+ only if you
-\textsl{really} want a newline.
+Creating a new paragraph in \TeX\ is simply done by leaving a line blank. The previous line will be terminated, a new paragraph will be started after a  length of \verb+\parskip+ and indented by \verb+\parindent+.  Use this.  If you really cannot use the indent on the next line, don't use \verb+\\+ but instead write  \verb+\noindent+ before the next paragraph.  Use \verb+\\+ only if you \textsl{really} want a newline.
 
-Of course, don't create a new paragraph when, for instance, your text goes on with
-a displayed equation!  It will add spurious space, your fault.
+Of course, don't create a new paragraph when, for instance, your text goes on with a displayed equation!  It will add spurious space, your fault.
 
 
 \subsection{Dashes}
-Watch the use of dashes.  For numerical ranges, use \verb+--+.  Use three 
-dashes to isolate---as in this example---a
-subsentence.  In equations, the dash is transformed to a minus. 
-So never write \verb+-1+ yielding -1, instead use \verb+$-1$+ giving $-1$.
+Watch the use of dashes.  For numerical ranges, use \verb+--+.  Use three  dashes to isolate---as in this example---a subsentence.  In equations, the dash is transformed to a minus.  So never write \verb+-1+ yielding -1, instead use \verb+$-1$+ giving $-1$.
 
 No spaces around dashes, except preceding a minus sign, of course!
 
@@ -148,50 +105,31 @@ No spaces around dashes, except preceding a minus sign, of course!
 Use \verb+\dots+ for $1,2,\dots,n$, I'm sure%
 \footnote{a bit tricky: the sentence ends with \protect\verb+\dots\ + to make sure
 there is a bit of space after the dots.}%
-\dots\ But for $1+2+\cdots+n$ you should use \verb-[1+2+\cdots+n]-. In math mode there are
-also $\vdots$ (\verb+$\vdots$+) and $\ddots$ (\verb+$\ddots$+).
+\dots\ But for $1+2+\cdots+n$ you should use \verb-[1+2+\cdots+n]-. In math mode there are also $\vdots$ (\verb+$\vdots$+),  $\ddots$ (\verb+$\ddots$+) and $\ldots$ (\verb+$\ldots$+).
 
 \subsection{Quotes}
-British English prefers single quotes, but you can do double.  Whatever you
-do---be consistent throughout your text!
+British English prefers single quotes, but you can do double.  Whatever you do---be consistent throughout your text!
 
-To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their single variants).  The more
-general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel
-language that you are typesetting.
+To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their single variants).  The more general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel language that you are typesetting.  Alternatively, you can use \verb+"`+ and \verb+"'+---but only if the Babel package is loaded.
 
 
 
 
 \section{Figures and tables}
-Most authors cannot drive \LaTeX\ well in placing these.  In fact, \LaTeX\ offers a very nice
-set of macros for placing and naming these.  You need just write
-\verb+\begin{figure} ... \end{figure}+ and remember that the label must always come
-\textsl{after} the caption, and you are fine.  Same for tables, but here the caption should
-\textsl{precede} the table contents.
+Most authors cannot drive \LaTeX\ well in placing these.  In fact, \LaTeX\ offers a very nice set of macros for placing and naming these.  You need just write \verb+\begin{figure} ... \end{figure}+ and remember that the label must always come \textsl{after} the caption, and you are fine.  Same for tables, but here the caption should \textsl{precede} the table contents.
 
-Now, since the table caption comes before the table and the figure caption after the figure,
-typesetting rules dictate that, where possible, figures are at the top of a page and
-tables at the bottom.  \TeX\ tries to do that for you, and in most cases you need never
-to worry about this anymore.
+Now, since the table caption comes before the table and the figure caption after the figure, typesetting rules dictate that, where possible, figures are at the top of a page and tables at the bottom.  \TeX\ tries to do that for you, and in most cases you need never to worry about this anymore.
 
-\textsl{Please} refrain from using these \verb+[hbtp!]+ position modifiers if you don't need
-to.  By default, \TeX\ does a very good job in placing them.  Also, please refrain from putting
-a figure in the middle of a column, unless you have a very good reason!
+\textsl{Please} refrain from using these \verb+[hbtp!]+ position modifiers if you don't need to.  By default, \TeX\ does a very good job in placing them.  Also, please refrain from putting a figure in the middle of a column, unless you have a very good reason!
 
 Refer to figures with \verb+Fig.~\ref{...}+ and to tables with \verb+Tab.~\ref{...}+.
 
 \subsection{Table formatting}
-Even I am daunted by the range of possibilities to format a table in \LaTeX.
-The standard set of macros is not very good, but the number of extensions that
-are available---even if one only counts the good and useful ones---is challenging.
-See the below as my personal taste.
+Even I am daunted by the range of possibilities to format a table in \LaTeX. The standard set of macros is not very good, but the number of extensions that are available---even if one only counts the good and useful ones---is challenging. See the below as my personal taste.
 
-The issue of table formatting is, to a large extent, related to taste and design rather than
-typography---yet the line is thin.  A succinct text on the matter can be found
-\href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
+The issue of table formatting is, to a large extent, related to taste and design rather than typography---yet the line is thin.  A succinct text on the matter can be found \href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
 
-Apart from the looks, there are a few packages that you may need when working with
-more-than-trivial tables in \LaTeX.  These include:
+Apart from the looks, there are a few packages that you may need when working with more-than-trivial tables in \LaTeX.  These include:
 \begin{verbatim}
 \usepackage{longtable}	% must be loaded to use {longtabu}
 \usepackage{tabu}		% more general tabular environment, use longtabu for long tables
@@ -200,38 +138,25 @@ more-than-trivial tables in \LaTeX.  These include:
 \usepackage[table]{xcolor}	% alternative to tabu to create coloured cells
 \usepackage{booktabs}		% to make prettier tables, use \toprule...\midrule...\bottomrule
 \end{verbatim}
-You only need spreadtab if you want to compute values in cells.  Tabu gives a good alternative
-to the myriad of tabularx, tabulary, longtabular, and all of these older versions, plus does
-many things one does not need.  Numprint prints scientific notation, is a good package to
-pretty-print tables with numbers, and to format the output of spreadtab.  xcolor may be needed
-to colour cells, but tabu does it, too; so if you use tabu, don't use xcolor.
+You only need spreadtab if you want to compute values in cells.  Tabu gives a good alternative to the myriad of tabularx, tabulary, longtabular, and all of these older versions, plus does many things one does not need.  Numprint prints scientific notation, is a good package to pretty-print tables with numbers, and to format the output of spreadtab.  xcolor may be needed to colour cells, but tabu does it, too; so if you use tabu, don't use xcolor.
 
-Check the manuals of these packages to enjoy their strength.  A separate file 
-\texttt{table-example} in this directory gives an example complex table.
+Check the manuals of these packages to enjoy their strength.  A separate file  \texttt{table-example} in this directory gives an example complex table.
 
 
 
 
 
 \section{Citing}
-There are two things to correct citing in \LaTeX.  First, there is putting the cite in the
-paper. Quite an easy thing to do, by typing \verb+\cite{ref1,ref2,ref3}+. Note that
-multiple cites are all included in one cite command.
+There are two things to correct citing in \LaTeX.  First, there is putting the cite in the paper. Quite an easy thing to do, by typing \verb+\cite{ref1,ref2,ref3}+. Note that multiple cites are all included in one cite command.
 
-The Bib\TeX\ entry itself must be carefully constructed.  Many people like to use
-bib management programs, such as the public-domain tool JabRef.  Fine, but you
-still must feed it with the right info:
+The Bib\TeX\ entry itself must be carefully constructed.  Many people like to use bib management programs, such as the public-domain tool JabRef.  Fine, but you still must feed it with the right info:
 \begin{itemize}
 \item for a journal publication, you must add title, author, year, volume number,
-pages, and possibly issue number.  Pages are written as \verb+5--10+, but if
-you write \verb+5-10+ in a Bib\TeX\ entry, it will automatically translate that
-to \verb+5--10+ for you.  Under no circumstance use three dashes!
-\item for a conference publication, don't add info on where the conference was.
-The \verb+address+ field is to specify the address of the publisher house, and quite
-irrelevant for these kind of publications.
+pages, and possibly issue number.  Pages are written as \verb+5--10+, but if you write \verb+5-10+ in a Bib\TeX\ entry, it will automatically translate that to \verb+5--10+ for you.  Under no circumstance use three dashes!
 
-If you have them, specify page numbers.  Then, of course, title, authors, name of the 
-conference.
+\item for a conference publication, don't add info on where the conference was. The \verb+address+ field is to specify the address of the publisher house, and quite irrelevant for these kind of publications.
+
+If you have them, specify page numbers.  Then, of course, title, authors, name of the  conference.
 \end{itemize}
 
 \section{Equations}
@@ -240,8 +165,7 @@ When having a displayed equation such as
 \begin{equation}\label{eq:schroedinger}
 i\hbar\frac{\partial\psi}{\partial t} = \frac{\hbar^2}{2m}\nabla^2\psi + V(\mathbf{r})\psi
 \end{equation}
-we can say that thanks to Schr\"odinger we know Eq.~(\ref{eq:schroedinger}) which
-is typed as \verb+Eq.~(\ref{eq:schroedinger})+.
+we can say that thanks to Schr\"odinger we know Eq.~(\ref{eq:schroedinger}) which is typed as \verb+Eq.~(\ref{eq:schroedinger})+.
 
 \subsection{Punctuation in equations}
 
@@ -255,57 +179,33 @@ when a comma has no place there.
 
 Oh, of course, punctuation should be within a display equation but outside an inline equation.
 
-But there are some caveats.  For instance, the comma in equations is a punctuation symbol.
-To change that, put it in braces to say, for instance, \verb+$10{,}000|x|$ is not less than $|x|$+.
+But there are some caveats.  For instance, the comma in equations is a punctuation symbol. To change that, put it in braces to say, for instance, \verb+$10{,}000|x|$ is not less than $|x|$+.
 
 \subsection{Give them space}
-Quite a tricky business, getting spacing in equations right.  But doing it right will tremendously
-improve the readability of equations, which is key to have your reader follow your writing.
+Quite a tricky business, getting spacing in equations right.  But doing it right will tremendously improve the readability of equations, which is key to have your reader follow your writing.
 
-In general, put in a bit of space before a derivative symbol: \verb+$a\,dx/dy$+ is right.
-Also, deleting the space in \verb+$x^2\!/2$+ gives $x^2\!/2$, much nicer than $x^2/2$.
-As is adding some in \verb+$\sqrt2\,x$+ to yield $\sqrt2\,x$ (compare $\sqrt2x$).
+In general, put in a bit of space before a derivative symbol: \verb+$a\,dx/dy$+ is right. Also, deleting the space in \verb+$x^2\!/2$+ gives $x^2\!/2$, much nicer than $x^2/2$. As is adding some in \verb+$\sqrt2\,x$+ to yield $\sqrt2\,x$ (compare $\sqrt2x$).
 
 \subsection{Units}
 Units are, in general, written according to ISO style and that means, you use ``s'' for seconds, ``m'' for metres, etc.  Make them roman (meaning, not slanted, not italics) and separate them from the number by half a space.  So you write \texttt{I am }\verb+1.86\,m+\texttt{ long, about }\verb+1,451,673,446,400\,ms+\texttt{ old, and vibrate at }\verb+1\,Hz+ to yield ``I am 1.86\,m long, about 1,451,673,446,400\,ms old, and vibrate at 1\,Hz'' and don't use math mode!  
 
-But, we write 75\%. And $25^\circ$C as \verb+$25^\circ$C+.
+But, we write 75\%\footnote{Not quite true---depending on the kind of style you prefer.  There are enough style guides preferring 75\,\%, including the ISO 31-0 standard, while Knuth himself suggests a space, too.  The Chicago Manual of Style disagrees.  It's up in the air, really!} And $25^\circ$C as \verb+$25^\circ$C+\footnote{Here, too, no consensus.  $25^\circ$C (Chicago style) and $25\,^\circ$C and $25^\circ\,$C are all acceptable---the latter not really in use anymore.  No matter what: if you follow one style, be consistent.}.
 
 
 \subsection{italics or roman?}
-By default, equations are built from single-letter symbols, e.g., $f(x) = ax+b$.  But sometimes it makes
-sense to write variables in a more wordy fashion.  People sometimes like to write $vel = d pos / d t$.  As
-you can see from the typesetting, this goes horribly wrong!  If you really need to write multi-letter
-variables describing some physical quantity, use \verb+\mathrm+, as in
-\verb+$\mathrm{vel} = d \mathrm{pos} / dt$+ to render $\mathrm{vel} = d \mathrm{pos} / dt$.
+By default, equations are built from single-letter symbols, e.g., $f(x) = ax+b$.  But sometimes it makes sense to write variables in a more wordy fashion.  People sometimes like to write $vel = d pos / d t$.  As you can see from the typesetting, this goes horribly wrong!  If you really need to write multi-letter variables describing some physical quantity, use \verb+\mathrm+, as in \verb+$\mathrm{vel} = d\,\mathrm{pos} / dt$+ to render $\mathrm{vel} = d\, \mathrm{pos} / dt$.
 
 \subsection{Multiplying}
-One sees many symbols for scalars multiplication.  There is the \verb+\times+ displayed as $\times$,
-or the \verb+\cdot+ aka $\cdot$, sometimes even \verb+\ast+, i.e., $\ast$.
+One sees many symbols for scalars multiplication.  There is the \verb+\times+ displayed as $\times$, or the \verb+\cdot+ aka $\cdot$, sometimes even \verb+\ast+, i.e., $\ast$.
 
-Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, $\times$ the 
-outer product, and $\ast$ means convolution\footnote{But, of course, these are only
-general conventions and not laws.  Indeed, there exist equations where throwing in
-a \verb+\cdot+ to indicate scalar multiplication may actually clarify things.}. To write
-$a$ times $x$, just type \verb+$ax$+ yielding $ax$.
+Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, $\times$ the  outer product, and $\ast$ means convolution\footnote{But, of course, these are only general conventions and not laws.  Indeed, there exist equations where throwing in a \verb+\cdot+ to indicate scalar multiplication may actually clarify things.}. To write $a$ times $x$, just type \verb+$ax$+ yielding $ax$.
 
 
 \subsection{Fractioning}
-Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain
-the same (note my use of parentheses---or rather, not using them where I need not).
-That is not worth discussing.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole
-fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased.
-At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion:
-don't use fractions in inline equations, but use the simple / divider.  What is easier
-to read, $\frac12$ or $1/2$?
+Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain the same (note my use of parentheses---or rather, not using them where I need not). That is not worth discussing.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased. At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion: don't use fractions in inline equations, but use the simple / divider.  What is easier to read, $\frac12$ or $1/2$?
 
 \subsection{Vectorising}
-Sometimes it is important to clear the difference between a vector and a scalar.
-The standard way to indicate vectors is as $\vec x$, and that works fine if it is 
-just one old vector lying around.  But when a whole bunch is involved, for instance
-$$ \vec x \vec y + \vec b \vec a = 2,$$ the result looks silly.  Some people
-prefer $$ \underline x \underline y + \underline b \underline a = 2$$ but, well,
-judge yourself.  
+Sometimes it is important to clear the difference between a vector and a scalar. The standard way to indicate vectors is as $\vec x$, and that works fine if it is  just one old vector lying around.  But when a whole bunch is involved, for instance $$ \vec x \vec y + \vec b \vec a = 2,$$ the result looks silly.  Some people prefer $$ \underline x \underline y + \underline b \underline a = 2$$ but, well, judge yourself.  
 
 One preferred way out is using boldface symbols.  If you do, do it right.  Get the \AmS math package and write,
 \begin{verbatim}
@@ -319,12 +219,9 @@ to render $\boldsymbol{abc\phi\chi}$.
 \item write \verb$p(x \mid y)$ to yield $p(x \mid y)$ rather than \verb$p(x|y)$ which gives $p(x|y)$
 \item write \verb$\|x\|$ to yield $\|x\|$ rather than \verb$||x||$ which gives $||x||$
 \item sometimes you need to help: cf.\ \begin{itemize}
-\item\verb$\exp(-(x-y) / (2\pi) )$
-giving $\exp(-(x-y) / (2\pi) )$
-\item\verb$\exp\left(-(x-y) / (2\pi) \right)$
-giving $\exp\left(-(x-y) / (2\pi) \right)$
-\item \verb$\exp\bigl(-(x-y) / (2\pi) \bigr)$
-giving $\exp\bigl(-(x-y) / (2\pi) \bigr)$
+\item\verb$\exp(-(x-y) / (2\pi) )$ giving $\exp(-(x-y) / (2\pi) )$
+\item\verb$\exp\left(-(x-y) / (2\pi) \right)$ giving $\exp\left(-(x-y) / (2\pi) \right)$
+\item \verb$\exp\bigl(-(x-y) / (2\pi) \bigr)$ giving $\exp\bigl(-(x-y) / (2\pi) \bigr)$
 \end{itemize}
 of which the last one is arguably easier to read.
 \end{itemize}
