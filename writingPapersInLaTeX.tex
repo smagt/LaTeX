@@ -17,7 +17,7 @@
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.16227}}
+\footnotesize{version 3.162277}}
 \author{smagt@brml.org}
 \begin{document}
 
@@ -51,7 +51,7 @@ except in compounds.''
 (So why does \TeX\ write \verb+overfull+?  And what about underfull?  Overfulfil, or is it overfulfill? Woeful, all of this.) 
 
 \subsection{a or an?}
-Everyone knows that ``an'' is used before a vowel, ``a'' before a consonant.  But that refers to the \textsl{sound} that follows, not to the spelling!  So please write, ``modern physics discovered that the constant indicated by \textbf{an} h is no longer relevant.''
+Everyone knows that ``an'' is used before a vowel, ``a'' before a consonant.  But that refers to the \textsl{sound} that follows, not to the spelling!  So please write, ``modern physics discovered that the constant indicated by \textbf{an} $h$ is no longer relevant for describing uncertainty \dots''
 
 
 \subsection{Dash}
@@ -59,7 +59,7 @@ The dash rule in English is really very, very simple (I am talking hyphens here)
 
 So, for instance, when we write ``the red-beaten man,'' we refer to a man who was beaten until red.  The adverb ``red'' describes a property of ``beaten,'' not of man.  If, however, we write ``the red beaten man'' (or, more clearly, ``the red, beaten man''), the poor chap was red before being beaten.
 
-So, write ``the two-dimensional manifold'' but ``the two dimensional manifolds'' (though I would not know what a ``dimensional manifold'' is).  Write the ``light-weight robot'' (although the whole name is clearly given by individuals who have no understanding of the English language: a weight is not light, but it can be low).
+So, write ``the two-dimensional manifold'' since ``the two dimensional manifolds'' would mean something else (though I would not know what a ``dimensional manifold'' is).  Write the ``light-weight robot'' (although the whole name is clearly given by individuals who have no understanding of the English language: a weight is not light, but it can be low.  I don't want to get into that discussion, however, since ``light-weight'' is an agreed-upon anomaly which non-natives should not contemplate on.)\footnote{Was I right in putting this final full-stop before the parenthesis?}
 
 
 \section{\LaTeX\ typesetting}
@@ -84,7 +84,7 @@ Since the amount of glue is not infinite, there are cases where \TeX\ cannot fil
 
 You really need to scan your log file for such errors.  And repair them!  There are a few things you can do.  The best thing is to reformulate your sentence, or help \TeX\ break words with the \verb+\-+ command.  If you are lazy, however, you can use \verb+\tolerance10000+ in the preamble of the document.  For \TeX, 10,000 is the same as infinity, and this means that the corresponding glues can be extended up ``infinity.''  You will never end up with overfull hboxes---but you will probably get \verb+underfull+ ones!
 
-After a full stop \textsl{not} following a capital letter, \TeX\ assumes the end of a sentence and adds more glue (i.e., more stretch).  Sometimes you don't want this, and you can prevent this extra glue with a \textbackslash\ (followed by a space) or a \textasciitilde\ (\textsl{not followed by a space}). The latter does not break along lines. To make things more intuitive, this also holds beyond a '' or a ).  So, type \verb+I think, viz.\ I am+ to yield ``I think, viz.\ I am'' rather than ``I think, viz. I am.'' Do you notice the difference?  I do.  Depending on how much the space has to be stretched to fill a line, \TeX\ will do that after a full stop.
+Then: after a full stop \textsl{not} following a capital letter, \TeX\ assumes the end of a sentence and adds more glue (i.e., more stretch).  Sometimes you don't want this, and you can prevent this extra glue with a \textbackslash\ (followed by a space) or a \textasciitilde\ (\textsl{not followed by a space}). The latter indicates a non-breaking space. To make things more intuitive, this also holds beyond a '' or a ).  So, type \verb+I think, viz.\ I am+ to yield ``I think, viz.\ I am'' rather than ``I think, viz. I am.'' Do you notice the difference?  I do.  Depending on how much the space has to be stretched to fill a line, \TeX\ will do that after a full stop.
 
 
 \verb+\raggedright+ and \verb+\raggedbottom+ switch off \TeX's line and page filling algorithms. The latter is, by default, off in article mode.
@@ -99,16 +99,16 @@ Of course, don't create a new paragraph when, for instance, your text goes on wi
 \subsection{Dashes}
 Watch the use of dashes.  For numerical ranges, use \verb+--+.  Use three  dashes to isolate---as in this example---a subsentence.  In equations, the dash is transformed to a minus.  So never write \verb+-1+ yielding -1, instead use \verb+$-1$+ giving $-1$.
 
-No spaces around dashes, except preceding a minus sign, of course!
+In English, no spaces around dashes please, except of course preceding a minus sign.
 
 \subsection{Dots}
 Use \verb+\dots+ for $1,2,\dots,n$, I'm sure%
 \footnote{a bit tricky: the sentence ends with \protect\verb+\dots\ + to make sure
 there is a bit of space after the dots.}%
-\dots\ But for $1+2+\cdots+n$ you should use \verb-[1+2+\cdots+n]-. In math mode there are also $\vdots$ (\verb+$\vdots$+),  $\ddots$ (\verb+$\ddots$+) and $\ldots$ (\verb+$\ldots$+).
+\dots\ \verb+\dots+ is smart: it adapts depending on the context.  You can therefore also use it for $1+2+\dots+n$, written as \verb-[1+2+\dots+n]-. You can always revert to \verb+\ldots+ or \verb+\cdots+ to take over control.  You can even use \vdots\ (\verb+\vdots+).  In math mode there is also $\ddots$ (\verb+$\ddots$+).  I'm not aware of any other dots.
 
 \subsection{Quotes}
-British English prefers single quotes, but you can do double.  Whatever you do---be consistent throughout your text!
+British English prefers single quotes; US English double.  But you can do double in BE documents (as I did in this document).  Whatever you do---be consistent throughout your text!
 
 To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their single variants).  The more general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel language that you are typesetting.  Alternatively, you can use \verb+"`+ and \verb+"'+---but only if the Babel package is loaded.
 
@@ -122,10 +122,10 @@ Now, since the table caption comes before the table and the figure caption after
 
 \textsl{Please} refrain from using these \verb+[hbtp!]+ position modifiers if you don't need to.  By default, \TeX\ does a very good job in placing them.  Also, please refrain from putting a figure in the middle of a column, unless you have a very good reason!
 
-Refer to figures with \verb+Fig.~\ref{...}+ and to tables with \verb+Tab.~\ref{...}+.
+Rules aiming at reducing reader distraction ask you to refer to figures with \verb+Fig.~\ref{...}+ and to tables with \verb+Tab.~\ref{...}+.
 
 \subsection{Table formatting}
-Even I am daunted by the range of possibilities to format a table in \LaTeX. The standard set of macros is not very good, but the number of extensions that are available---even if one only counts the good and useful ones---is challenging. See the below as my personal taste.
+Even I am daunted by the range of possibilities to format a table in \LaTeX. The standard set of macros is not very good, but the number of extensions that are available---even if one only counts the good and useful ones---is challenging. See the below as my personal taste.  That said, one may still think that typesetting tables is about \LaTeX's worst feature.  I know of no alternatives.
 
 The issue of table formatting is, to a large extent, related to taste and design rather than typography---yet the line is thin.  A succinct text on the matter can be found \href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
 
@@ -158,6 +158,8 @@ pages, and possibly issue number.  Pages are written as \verb+5--10+, but if you
 
 If you have them, specify page numbers.  Then, of course, title, authors, name of the  conference.
 \end{itemize}
+Now that may all be nice and well.  If you want to be a bit more serious and flexible about citations---something you will probably need to do in a book or other long document with chapters---you will want to look at the quite exquisite Bib\LaTeX\ package.  It gives you a whole new experience of making bibliographies in \LaTeX.  It is too mighty to deal with here.
+
 
 \section{Equations}
 \subsection{Referring to equations}\label{sec:refereq}
@@ -191,6 +193,7 @@ Units are, in general, written according to ISO style and that means, you use ``
 
 But, we write 75\%\footnote{Not quite true---depending on the kind of style you prefer.  There are enough style guides preferring 75\,\%, including the ISO 31-0 standard, while Knuth himself suggests a space, too.  The Chicago Manual of Style disagrees.  It's up in the air, really!} And $25^\circ$C as \verb+$25^\circ$C+\footnote{Here, too, no consensus.  $25^\circ$C (Chicago style) and $25\,^\circ$C and $25^\circ\,$C are all acceptable---the latter not really in use anymore.  No matter what: if you follow one style, be consistent.}.
 
+There's a nice package \texttt{siunitx} for assisting in these things. 
 
 \subsection{italics or roman?}
 By default, equations are built from single-letter symbols, e.g., $f(x) = ax+b$.  But sometimes it makes sense to write variables in a more wordy fashion.  People sometimes like to write $vel = d pos / d t$.  As you can see from the typesetting, this goes horribly wrong!  If you really need to write multi-letter variables describing some physical quantity, use \verb+\mathrm+, as in \verb+$\mathrm{vel} = d\,\mathrm{pos} / dt$+ to render $\mathrm{vel} = d\, \mathrm{pos} / dt$.
