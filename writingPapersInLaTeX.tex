@@ -259,19 +259,15 @@ $\KL{p(x)}{q(x)}$
 \end{verbatim}
 rendering
 \newcommand{\KLf}[2]{\mathrm{KL}\left(#1\nonscript\,\middle\|\nonscript\,#2\right)}
-$\KLf{p(x)}{q(x)}$.  There is ugly space after the KL; manual spacing around the $\|$, and  only limited control over the size of the parentheses.
+$\KLf{p(x)}{q(x)}$.  There is ugly space after the KL; and only limited control over the size of the parentheses.
 
-The package \verb+mathtools+ gives an elegant solution, which we can exploit as follows:
+Loading the package \verb+mathtools+ gives a solution, which we can exploit as follows:
 \begin{verbatim}
-\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{%
-  #1\;\delimsize\|\;#2%
-}
+\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{#1\,\delimsize\|\,#2}
 \newcommand{\KL}{\mathrm{KL}\KLx}
 $\KL{p(x)}{q(x)}$ and $\KL[\big]{p(x)}{q(x)}$
 \end{verbatim}
-\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{%
-  #1\;\delimsize\|\;#2%
-}
+\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{#1\,\delimsize\|\,#2}
 \newcommand{\KL}{\mathrm{KL}\KLx}
 rendering
 $\KL{p(x)}{q(x)}$ and
