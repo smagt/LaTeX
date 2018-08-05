@@ -14,10 +14,12 @@
 \VerbatimFootnotes
 
 \usepackage{amsmath}
+\usepackage{mathtools}
+
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.162277}}
+\footnotesize{version 3.1622776}}
 \author{smagt@brml.org}
 \begin{document}
 
@@ -28,7 +30,8 @@ not for you.  But if you do, you may have more satisfaction from reading
 the \TeX book than these few lines.   Do so, please. Here may be a surprise for you: it is probably on your computer.
 
 \section{Language}
-Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves a few iterations and many irritations.  Note that you can decide whether you use US English or British English (BE) spelling.  Some notable differences include the following words:
+Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves a few iterations and many irritations.  Make sure you decide whether you use US English or British English (BE) spelling and try to be consistent.
+Some notable differences include the following words:
 \begin{center}\begin{tabular}{c|c}
 British English & US English \\\hline
 colour, flavour, humour, etc.	& color, flavor, humor, etc.\\
@@ -189,7 +192,15 @@ when a comma has no place there.
 
 Oh, of course, punctuation should be within a display equation but outside an inline equation.
 
-But there are some caveats.  For instance, the comma in equations is a punctuation symbol. To change that, put it in braces to say, for instance, \verb+$10{,}000|x|$ is not less than $|x|$+.
+But there are some caveats.  For instance, the comma in equations is a punctuation symbol. To change that, put it in braces to say, for instance, \verb+$10{,}000\,|x|$ is not less than $|x|$+.  Done without the braces:
+\begin{quotation}
+$10,000\,|x|$ is not less than $|x|$
+\end{quotation}
+which is not as nice as the version with accolades:
+\begin{quotation}
+$10{,}000\,|x|$ is not less than $|x|$
+\end{quotation}
+Note that, in both cases, I put a bit of extra space after the last 0, or else it looks too cramped.  Accolades, braces, curly brackets\dots all the same thing, in this context.
 
 \subsection{Give them space}
 Quite a tricky business, getting spacing in equations right.  But doing it right will tremendously improve the readability of equations, which is key to have your reader follow your writing.
@@ -213,7 +224,7 @@ Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, 
 
 
 \subsection{Fractioning}
-Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain the same (note my use of parentheses---or rather, not using them where I need not). That is not worth discussing.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased. At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion: don't use fractions in inline equations, but use the simple / divider.  What is easier to read, $\frac12$ or $1/2$?
+Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain the same (note my use of parentheses---or rather, not using them where I need not)\footnote{Preferring \verb+\over+ not the best choice; better get used to \verb+\frac+ as it is more robust to things like font specifications.}.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased. At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion: don't use fractions in inline equations, but use the simple / divider.  What is easier to read, $\frac12$ or $1/2$?
 
 \subsection{Vectorising}
 Sometimes it is important to clear the difference between a vector and a scalar. The standard way to indicate vectors is as $\vec x$, and that works fine if it is  just one old vector lying around.  But when a whole bunch is involved, for instance $$ \vec x \vec y + \vec b \vec a = 2,$$ the result looks silly.  Some people prefer $$ \underline x \underline y + \underline b \underline a = 2$$ but, well, judge yourself.  
@@ -235,11 +246,37 @@ $p\left (x \given y \right)$
 giving
 \newcommand{\given}{\nonscript\,\middle\vert\nonscript\,}
 $p\left (x \given y \right)$.
-But it only works if you actually use \verb|\left|\dots\!\verb|\right|.
+But you then \textsl{must} use  \verb|\left|\dots\!\verb|\right|, or else an error will occur.
 Be that as it may, my eye prefers the given spacing over what \verb|\mid| does.
-On the downside, it goes horribly wrong when you need two next to each other, as in the KL-Divergence.
 
 \item write \verb$\|x\|$ to yield $\|x\|$ rather than \verb$||x||$ which gives $||x||$
+
+\item
+Easy to extend to, e.g., KL.  But another problem arises:
+\begin{verbatim}
+\DeclareMathOperator{\KL}[2]{KL\left(#1\nonscript\,\middle\|\nonscript\,#2\right)}
+$\KL{p(x)}{q(x)}$
+\end{verbatim}
+rendering
+\newcommand{\KLf}[2]{\mathrm{KL}\left(#1\nonscript\,\middle\|\nonscript\,#2\right)}
+$\KLf{p(x)}{q(x)}$.  There is ugly space after the KL; manual spacing around the $\|$, and  only limited control over the size of the parentheses.
+
+The package \verb+mathtools+ gives an elegant solution, which we can exploit as follows:
+\begin{verbatim}
+\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\KL}{\mathrm{KL}\KLx}
+$\KL{p(x)}{q(x)}$ and $\KL[\big]{p(x)}{q(x)}$
+\end{verbatim}
+\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\newcommand{\KL}{\mathrm{KL}\KLx}
+rendering
+$\KL{p(x)}{q(x)}$ and
+$\KL[\big]{p(x)}{q(x)}$.
+
 \item sometimes you need to help: cf.\ \begin{itemize}
 \item\verb$\exp(-(x-y) / (2\pi) )$ giving $\exp(-(x-y) / (2\pi) )$
 \item\verb$\exp\left(-(x-y) / (2\pi) \right)$ giving $\exp\left(-(x-y) / (2\pi) \right)$
