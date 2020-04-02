@@ -19,8 +19,8 @@
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.1622776}}
-\author{smagt@brml.org}
+\footnotesize{version 3.16227766}}
+\author{Patrick van der Smagt}
 \begin{document}
 
 \maketitle
@@ -29,7 +29,22 @@ You don't know who Donald Knuth is?  Stop reading here.  This document is
 not for you.  But if you do, you may have more satisfaction from reading 
 the \TeX book than these few lines.   Do so, please. Here may be a surprise for you: it is probably on your computer.
 
+Why?
+It's simple.
+When you want people to read your article, you need to transport its contents. 
+To do so, you want your audience to focus on the contents, and not on how the contents it packed.
+You need to make the form inconspicuous; it should not distract the reader.
+The more streamlined it is, the better the reader can concentrate.
+That's why we start a sentence with a capital letter.
+
+
+
 \section{Language}
+Now, English is a very weird European language.
+There are many style guides, traditionally set by the publishing houses (but less so these days).
+Many of them have small idiosyncrasies, and you're free to adhere to any of those (or even your own, if you feel bold enough).
+Key, however, is consistency.
+
 Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves a few iterations and many irritations.  Make sure you decide whether you use US English or British English (BE) spelling and try to be consistent.
 Some notable differences include the following words:
 \begin{center}\begin{tabular}{c|c}
@@ -70,7 +85,19 @@ So, write ``the two-dimensional manifold'' since ``the two dimensional manifold'
 
 Now, finally, you'd be silly to listen to the above.
 First of all, I am not a native speaker, at least not of the English language.  
-Second, the above rules may be rules, but English is not that strict.  Being consistent throughout a piece of text is certainly advisable, since it reduces reader confusion.  But take the above dashes-piece.  Yes, it may be correct.  But if there is no confusion, as in ``two dimensional manifold,'' you need not be pedantic about putting the dash there.  You can, but leaving it out is not necessarily wrong.
+I am not even close to an expert on English, or any language for that matter.
+I like to be conscious about it's use, but am not even very good at it.
+
+Second, the above rules may be rules, but English is not that strict.
+Being consistent throughout a piece of text is certainly advisable, since it reduces reader confusion.
+But take the above dashes-piece.
+Yes, it may be correct
+ But if there is no confusion, as in ``two dimensional manifold,'' you need not be pedantic about putting the dash there.
+ You can, but leaving it out is not necessarily wrong.
+
+If you want to read more on the matter, one of my favourite books is \href{https://profilebooks.com/making-a-point.html}{\textsl{Making a point}} by David Crystal. 
+By the way, his other books are not less excellent.
+
 
 \section{\LaTeX\ typesetting}
 \subsection{Commands}
@@ -168,7 +195,8 @@ pages, and possibly issue number.  Pages are written as \verb+5--10+, but if you
 
 If you have them, specify page numbers.  Then, of course, title, authors, name of the  conference.
 \end{itemize}
-Now that may all be nice and well.  If you want to be a bit more serious and flexible about citations---something you will probably need to do in a book or other long document with chapters---you will want to look at the quite exquisite Bib\LaTeX\ package.  It gives you a whole new experience of making bibliographies in \LaTeX.  It is too mighty to deal with here.
+Now that may all be nice and well.  If you want to be a bit more serious and flexible about citations---something you will probably need to do in a book or other long document with chapters---you will want to look at the quite exquisite Bib\LaTeX\ package.  It gives you a whole new experience of making bibliographies in \LaTeX.
+It is too mighty to deal with here.
 
 
 \section{Equations}
@@ -281,6 +309,13 @@ $\KL[\big]{p(x)}{q(x)}$.
 of which the last one is arguably easier to read.
 \end{itemize}
 
+
+\section{Fonts}
+The topic of choosing fonts really goes beyond the scope of this short piece of text.
+But a nice short guide on typography is 
+\href{https://www.pierrickcalvez.com/journal/a-five-minutes-guide-to-better-typography}{here}.
+Basically: use serif fonts for long lines, as in a flow text.  
+Basically: you're not at all bad off using Donald Knuth Computer Modern fonts.
 
 
  \end{document}
