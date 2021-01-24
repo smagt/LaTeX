@@ -19,7 +19,7 @@
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.16227766}}
+\footnotesize{version 3.1622776601}}
 \author{Patrick van der Smagt}
 \begin{document}
 
@@ -119,7 +119,7 @@ It is worth understanding the spacing algorithm in \TeX. The intricacies go beyo
 
 Since the amount of glue is not infinite, there are cases where \TeX\ cannot fill a page or line with the amount of glue available.  You may find an example in Sec.~\ref{sec:refereq}.  So, \TeX\ gives up and outputs an error message (\verb+overfull \hbox+).
 
-You really need to scan your log file for such errors.  And repair them!  There are a few things you can do.  The best thing is to reformulate your sentence, or help \TeX\ break words with the \verb+\-+ command.  If you are lazy, however, you can use \verb+\tolerance10000+ in the preamble of the document.  For \TeX, 10,000 is the same as infinity, and this means that the corresponding glues can be extended up ``infinity.''  You will never end up with overfull hboxes---but you will probably get \verb+underfull+ ones!
+You really need to scan your log file for such errors.  And repair them!  There are a few things you can do.  The best thing is to reformulate your sentence, or help \TeX\ break words with the \verb+\-+ command.  If you are lazy, however, you can use \verb+\tolerance10000+ in the preamble of the document.  For \TeX, 10,000 is the same as infinity, and this means that the corresponding glues can be extended up ``infinity.''  You will never end up with overfull hboxes -- but you will probably get \verb+underfull+ ones!
 
 Then: after a full stop \textsl{not} following a capital letter, \TeX\ assumes the end of a sentence and adds more glue (i.e., more stretch).  Sometimes you don't want this, and you can prevent this extra glue with a \textbackslash\ (followed by a space) or a \textasciitilde\ (\textsl{not followed by a space}). The latter indicates a non-breaking space. To make things more intuitive, this also holds beyond a '' or a ).  So, type \verb+I think, viz.\ I am+ to yield ``I think, viz.\ I am'' rather than ``I think, viz. I am.'' Do you notice the difference?  I do.  Depending on how much the space has to be stretched to fill a line, \TeX\ will do that after a full stop.
 
@@ -134,7 +134,13 @@ Of course, don't create a new paragraph when, for instance, your text goes on wi
 
 
 \subsection{Dashes}
-Watch the use of dashes.  For numerical ranges, use \verb+--+.  Use three  dashes to isolate---as in this example---a subsentence.  In equations, the dash is transformed to a minus.  So never write \verb+-1+ yielding -1, instead use \verb+$-1$+ giving $-1$.
+Watch the use of dashes.  For numerical ranges, use the en-dash \verb+--+.
+
+As to em-dashes?  Well, in 2020/2021 I changed my mind.  I always adhered to the more US-centric approach of using an em-dash as an alternative to a comma---not pretty sometimes, but helps, and in \TeX\ is typed as \verb+---+.  Always without spaces around it! 
+
+But that is less customary in British English -- and in quite a few other languages I know in fact -- and for British, the Oxford style guide says, do not use the em-dash. Instead -- as in this example -- use the en-dash separated by spaces.  In \TeX, it's typed with two hyphens.
+
+In equations, the dash is to be transformed to a minus.  So never write \verb+-1+ yielding -1, instead use \verb+$-1$+ giving $-1$.
 
 In English, no spaces around dashes please, except of course preceding a minus sign.
 
@@ -145,7 +151,7 @@ there is a bit of space after the dots.}%
 \dots\ \verb+\dots+ is smart: it adapts depending on the context.  You can therefore also use it for $1+2+\dots+n$, written as \verb-[1+2+\dots+n]-. You can always revert to \verb+\ldots+ or \verb+\cdots+ to take over control.  You can even use \vdots\ (\verb+\vdots+).  In math mode there is also $\ddots$ (\verb+$\ddots$+).  I'm not aware of any other dots.
 
 \subsection{Quotes}
-British English prefers single quotes; US English double.  But you can do double in BE documents (as I did in this document).  Whatever you do---be consistent throughout your text!
+British English prefers single quotes; US English double.  But you can do double in BE documents (as I did in this document).  Whatever you do -- be consistent throughout your text!
 
 To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their single variants).  The more general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel language that you are typesetting.  Alternatively, you can use \verb+"`+ and \verb+"'+---but only if the Babel package is loaded.
 
@@ -162,9 +168,9 @@ Now, since the table caption comes before the table and the figure caption after
 Rules aiming at reducing reader distraction ask you to refer to figures with \verb+Fig.~\ref{...}+ and to tables with \verb+Tab.~\ref{...}+.
 
 \subsection{Table formatting}
-Even I am daunted by the range of possibilities to format a table in \LaTeX. The standard set of macros is not very good, but the number of extensions that are available---even if one only counts the good and useful ones---is challenging. See the below as my personal taste.  That said, one may still think that typesetting tables is about \LaTeX's worst feature.  I know of no alternatives.
+Even I am daunted by the range of possibilities to format a table in \LaTeX. The standard set of macros is not very good, but the number of extensions that are available -- even if one only counts the good and useful ones -- is challenging. See the below as my personal taste.  That said, one may still think that typesetting tables is about \LaTeX's worst feature.  I know of no alternatives.
 
-The issue of table formatting is, to a large extent, related to taste and design rather than typography---yet the line is thin.  A succinct text on the matter can be found \href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
+The issue of table formatting is, to a large extent, related to taste and design rather than typography -- yet the line is thin.  A succinct text on the matter can be found \href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{behind this link.}
 
 Apart from the looks, there are a few packages that you may need when working with more-than-trivial tables in \LaTeX.  These include:
 \begin{verbatim}
@@ -195,7 +201,7 @@ pages, and possibly issue number.  Pages are written as \verb+5--10+, but if you
 
 If you have them, specify page numbers.  Then, of course, title, authors, name of the  conference.
 \end{itemize}
-Now that may all be nice and well.  If you want to be a bit more serious and flexible about citations---something you will probably need to do in a book or other long document with chapters---you will want to look at the quite exquisite Bib\LaTeX\ package.  It gives you a whole new experience of making bibliographies in \LaTeX.
+Now that may all be nice and well.  If you want to be a bit more serious and flexible about citations -- something you will probably need to do in a book or other long document with chapters -- you will want to look at the quite exquisite Bib\LaTeX\ package.  It gives you a whole new experience of making bibliographies in \LaTeX.
 It is too mighty to deal with here.
 
 
@@ -207,6 +213,9 @@ i\hbar\frac{\partial\psi}{\partial t} = \frac{\hbar^2}{2m}\nabla^2\psi + V(\math
 \end{equation}
 we can say that thanks to Schr\"odinger we know Eq.~(\ref{eq:schroedinger}) which is typed as \verb+Eq.~(\ref{eq:schroedinger})+.
 The above line creates an overfull warning.  How can we deal with that, and how should we?
+
+Personally I got used to doing things by hand, but many people like packages to assist them in such (and other) references.
+ \verb+cleveref+  is one of the more complete ones and worth checking out.
 
 \subsection{Punctuation in equations}
 
@@ -238,7 +247,7 @@ In general, put in a bit of space before a derivative symbol: \verb+$a\,dx/dy$+ 
 \subsection{Units}
 Units are, in general, written according to ISO style and that means, you use ``s'' for seconds, ``m'' for metres, etc.  Make them roman (meaning, not slanted, not italics) and separate them from the number by half a space.  So you write \texttt{I am }\verb+1.86\,m+\texttt{ long, about }\verb+1,451,673,446,400\,ms+\texttt{ old, and vibrate at }\verb+1\,Hz+ to yield ``I am 1.86\,m long, about 1,451,673,446,400\,ms old, and vibrate at 1\,Hz'' and don't use math mode!  
 
-But, we write 75\%\footnote{Not quite true---depending on the kind of style you prefer.  There are enough style guides preferring 75\,\%, including the ISO 31-0 standard, while Knuth himself suggests a space, too.  The Chicago Manual of Style disagrees.  It's up in the air, really!} And $25^\circ$C as \verb+$25^\circ$C+\footnote{Here, too, no consensus.  $25^\circ$C (Chicago style) and $25\,^\circ$C and $25^\circ\,$C are all acceptable---the latter not really in use anymore.  No matter what: if you follow one style, be consistent.}.
+But, we write 75\%\footnote{Not quite true -- depending on the kind of style you prefer.  There are enough style guides preferring 75\,\%, including the ISO 31-0 standard, while Knuth himself suggests a space, too.  The Chicago Manual of Style disagrees.  It's up in the air, really!} And $25^\circ$C as \verb+$25^\circ$C+\footnote{Here, too, no consensus.  $25^\circ$C (Chicago style) and $25\,^\circ$C and $25^\circ\,$C are all acceptable -- the latter not really in use anymore.  No matter what: if you follow one style, be consistent.}.
 
 There's a nice package \texttt{siunitx} for assisting in these things. 
 
@@ -252,7 +261,7 @@ Just don't.  For engineers: $\cdot$ is, in general, the inner (or dot) product, 
 
 
 \subsection{Fractioning}
-Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain the same (note my use of parentheses---or rather, not using them where I need not)\footnote{Preferring \verb+\over+ not the best choice; better get used to \verb+\frac+ as it is more robust to things like font specifications.}.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased. At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion: don't use fractions in inline equations, but use the simple / divider.  What is easier to read, $\frac12$ or $1/2$?
+Sure, you use \verb+$\frac12$+ to write $\frac12$, while I myself prefer writing \verb+$1\over2$+ to obtain the same (note my use of parentheses -- or rather, not using them where I need not)\footnote{Preferring \verb+\over+ not the best choice; better get used to \verb+\frac+ as it is more robust to things like font specifications.}.  But once things get more complex, such as $\frac a{\sqrt{1+q}}$, the whole fraction increases in length, and lines get cramped or, even worse, the baseline stretch is increased. At any rate, if your equation is so complex, by all means revert to writing $a/{\sqrt{1+q}}$.   Suggestion: don't use fractions in inline equations, but use the simple / divider.  What is easier to read, $\frac12$ or $1/2$?
 
 \subsection{Vectorising}
 Sometimes it is important to clear the difference between a vector and a scalar. The standard way to indicate vectors is as $\vec x$, and that works fine if it is  just one old vector lying around.  But when a whole bunch is involved, for instance $$ \vec x \vec y + \vec b \vec a = 2,$$ the result looks silly.  Some people prefer $$ \underline x \underline y + \underline b \underline a = 2$$ but, well, judge yourself.  
@@ -295,11 +304,18 @@ Loading the package \verb+mathtools+ gives a solution, which we can exploit as f
 \newcommand{\KL}{\mathrm{KL}\KLx}
 $\KL{p(x)}{q(x)}$ and $\KL[\big]{p(x)}{q(x)}$
 \end{verbatim}
-\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{#1\,\delimsize\|\,#2}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\DeclarePairedDelimiterX{\KLx}[2]{(}{)}{\left.#1\relmiddle|\relmiddle| #2\right.}
 \newcommand{\KL}{\mathrm{KL}\KLx}
+\DeclarePairedDelimiterX{\kKLx}[2]{(}{)}{#1\,\delimsize\|\,#2}
+\newcommand{\kKL}{\mathrm{KL}\kKLx}
 rendering
 $\KL{p(x)}{q(x)}$ and
-$\KL[\big]{p(x)}{q(x)}$.
+$\KL[\Big]{p(x)}{q(x)}$.
+\\
+rendering
+$\kKL{p(x)}{q(x)}$ and
+$\kKL[\Big]{p(x)}{q(x)}$.
 
 \item sometimes you need to help: cf.\ \begin{itemize}
 \item\verb$\exp(-(x-y) / (2\pi) )$ giving $\exp(-(x-y) / (2\pi) )$
