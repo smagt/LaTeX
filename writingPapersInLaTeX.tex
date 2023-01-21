@@ -19,7 +19,7 @@
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.1622776601}}
+\footnotesize{version 3.16227766017}}
 \author{Patrick van der Smagt}
 \begin{document}
 
@@ -155,6 +155,20 @@ British English prefers single quotes; US English double.  But you can do double
 
 To type quotes in \LaTeX, use \verb+``+ and \verb+''+ (or, of course, their single variants).  The more general \verb+\lq+ (for left quote) and \verb+\rq+ will render the right quotes in the Babel language that you are typesetting.  Alternatively, you can use \verb+"`+ and \verb+"'+---but only if the Babel package is loaded.
 
+If you did use Babel and set your language right, there is a nice automation for quotes in \LaTeX\ -- as for many things, of course.  Use 
+\begin{verbatim}
+\usepackage[british]{babel}
+...
+\usepackage[autostyle]{csquotes}
+\MakeOuterQuote{"}
+\end{verbatim} 
+or, if you did not specify the language of your document,
+\begin{verbatim}
+usepackage[autostyle=false, style=british]{csquotes}
+\MakeOuterQuote{"}
+\end{verbatim} 
+after which you can write \verb|\textsl{She told me, "I bloody like this option".}| to render
+\textsl{She told me, `I bloody like this option'.} % yeah sorry, if you read the source, you see I'm cheating here.
 
 
 
