@@ -24,7 +24,8 @@
 
 \title{Everything you always wanted to know about \LaTeX ing an article 
 and I grew tired of telling\\[1ex]
-\footnotesize{version 3.162277660168}}
+\footnotesize{version 3.1622776601683}}
+% 3.1622776601683793320
 \author{Patrick van der Smagt}
 \begin{document}
 
@@ -37,20 +38,36 @@ the \TeX book than these few lines.   Do so, please. Here may be a surprise for 
 Why?
 It's simple.
 When you want people to read your article, you need to transport its contents. 
-To do so, you want your audience to focus on the contents, and not on how the contents it packed.
+To do so, you want your audience to focus on the contents, and not on how the contents is packed.
 You need to make the form inconspicuous; it should not distract the reader.
 The more streamlined it is, the better the reader can concentrate.
 That's why we start a sentence with a capital letter.
 
+But there is more.  In this document we focus on two things to help your reader: language, and formatting.  Both can be tuned to guide the reader's attention to your message.
+
 
 
 \section{Language}
-Now, English is a very weird European language.
+Now, English is a very weird European language, since it is totally eclectic.  It was built on two different languages: its Germanic roots (500--1100 AD), and its French roots (1100--1500 AD).  
+
+
 There are many style guides, traditionally set by the publishing houses (but less so these days).
 Many of them have small idiosyncrasies, and you're free to adhere to any of those (or even your own, if you feel bold enough).
 Key, however, is consistency.
 
-\subsection{US vs BR}
+\subsection{Don't abutilise language}
+In my opinion, it is especially true for scientific writing that you need to keep your reader in mind. Typically, you are not going to put down some trivialities to entertain your reader. Instead, you are trying to convey some message. You want to explain something that may be not immediately clear.
+
+So how do you do that?  I think that using the most clear, open language, with as few distraction as possible, is the best way to go.
+
+Take this sentence as an example: "This helps maintaining proximity to the data distribution while allowing deviation from the behavior policy when necessary and significantly speeds up policy learning." There are quite a few complex words in that sentence: "maintaining proximity", "allowing deviation", "significantly".  None of these are necessary terms for the sentence, so let's see if we can rewrite it.
+"This keeps the policy close to the original data while allowing it to change when needed, which makes learning the policy much faster."  It is making some assumptions here, 
+
+A can of worms I'm opening here, I know, and there's more to be said.  Indeed, more said, and if you want to hear my  voice, check
+\href{https://smagt.github.io/readable\%20paper\%20writing.html}{here} for a further discourse on the matter.
+
+
+\subsection{US vs Br}
 \subsubsection{spelling}
 
 Beware your spelling bugs.  You can squeeze them before giving your document to someone else, it saves a few iterations and many irritations.  Make sure you decide whether you use US English or British English (BE) spelling and try to be consistent.
@@ -115,7 +132,7 @@ Yes, it may be correct
  But if there is no confusion, as in "two dimensional manifold", you need not be pedantic about putting the dash there.
  You can, but leaving it out is not necessarily wrong.
 
-If you want to read more on the matter, one of my favourite books is \href{https://profilebooks.com/making-a-point.html}{\textsl{Making a point}} by David Crystal. 
+If you want to read more on the matter, one of my favourite books is \href{https://www.theguardian.com/books/2015/sep/17/making-a-point-pernickety-story-english-punctuation-david-crystal-review}{\textsl{Making a point}} by David Crystal. 
 By the way, his other books are not less excellent.
 
 
@@ -378,6 +395,30 @@ But a nice short guide on typography is
 \href{https://www.pierrickcalvez.com/journal/a-five-minutes-guide-to-better-typography}{here}.
 Basically: use serif fonts for long lines, as in a flow text.  
 Basically: you're not at all bad off using Donald Knuth Computer Modern fonts.
+
+
+\section*{Further reading}
+You, as a scientist, know not to trust a single source.  So there.
+\medskip
+\parindent0pt
+
+David Crystal: \href{https://www.theguardian.com/books/2015/sep/17/making-a-point-pernickety-story-english-punctuation-david-crystal-review}{\textsl{Making a point}}.
+
+Gopen \& Swan: \href{https://github.com/smagt/LaTeX/blob/master/The\%20science\%20of\%20scientific\%20writing.pdf}{The Science of Scientific Writing}.
+
+Markus P\"uschel: \href{http://users.ece.cmu.edu/~pueschel/teaching/guides/guide-tables.pdf}{Small Guide to Making Nice Tables}.
+
+
+Maximilian Soelch: \href{https://github.com/msoelch/tex}{Opinions and Experiences Writing Scientific Articles in \LaTeX}.
+
+
+Patrick van der Smagt: \href{https://smagt.github.io/readable\%20paper\%20writing.html}{on technical writing}.
+
+Pierrick Calvez: \href{https://www.pierrickcalvez.com/journal/a-five-minutes-guide-to-better-typography}{A Five-Minute Guide to Better Typography}.
+
+stackexchange: \href{https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib}{bibtex vs. biber and biblatex vs. natbib}.
+
+Wikipedia: \href{http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences}{American and British English spelling differences}.
 
 
  \end{document}
